@@ -1,0 +1,226 @@
+.WiA-h1 {
+    color: #3DCFB6;
+    font-size: 24px;
+    font-family: Karla;
+    font-weight: 500;
+}
+
+.Am-h1 {
+    color: #3DCFB6;
+    font-size: 64px;
+    line-height: 64px;
+    font-family: Fira Code;
+    font-weight: 700;
+}
+
+.AboutMe-text1 {
+    color: #FFFFFF;
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    width: 504px;
+    height: 88px;
+}
+
+.AboutMe-text2 {
+    color: #FFFFFFCC;
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    width: 448px;
+    height: 44px;
+
+
+    &:hover {
+        color: white;
+    }
+}
+
+.AboutMe-text3 {
+    color: #FFFFFFCC;
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    width: 448px;
+    height: 66px;
+
+
+    &:hover {
+        color: white;
+    }
+}
+
+.AboutMe-text4 {
+    color: #FFFFFFCC;
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    width: 448px;
+    height: 132px;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.AboutMe-IMG {
+    background-image: url('/assets/IMG/Capa_1.png');
+    width: 100%;
+    max-width: 568px;
+    height: 558px;
+    border-radius: 30px;
+    position: relative;
+    top: 40px;
+
+    @media screen and (max-width: 750px) {
+        background-image: unset;
+    }
+
+    @media screen and (max-width: 627px) {
+        width: calc(100% - 40px); 
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 620px) {
+        height: unset;
+    }
+}
+
+.AboutMe-section {
+    display: flex;
+    gap: 200px;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    height: 800px;
+    margin-top: 70px;
+
+    @media screen and (max-width: 1420px) {
+        height: auto;
+        display: block;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+.AboutMe-text-icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    img {
+        width: 32px;
+    }
+}
+
+.AboutMe-text-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 562px;
+    padding: 32px;
+    border-radius: 30px;    
+    background: #3DCFB61A;
+    border: 1px solid #3DCFB6;
+}
+
+.AboutMe-text {
+    top: 98px;
+    position: relative;
+
+    @media screen and (max-width: 1420px) {
+        top: 0px;
+    }
+}
+
+@media screen and (max-width: 627px) {
+    .AboutMe-text {
+        max-width: 90%;
+        margin: 0 auto; 
+        padding: 20px; 
+    }
+
+    .AboutMe-text-container {
+        padding: 24px; 
+        text-align: left; 
+        height: unset;
+    }
+
+    .WiA-h1 {
+        font-size: 20px;
+    }
+
+    .Am-h1 {
+        font-size: 45px; 
+        line-height: 52px;
+    }
+
+    .AboutMe-text1,
+    .AboutMe-text2,
+    .AboutMe-text3,
+    .AboutMe-text4 {
+        font-size: 16px; 
+        width: 100%; 
+        height: auto; 
+    }
+
+    .AboutMe-text-icons {
+        gap: 16px; 
+    }
+}
+
+.hidden-left {
+    opacity: 0;
+    transform: translateX(-200px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-right {
+    opacity: 0;
+    transform: translateX(200px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+html, body {
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+}
+
+.AboutMe-section {
+    overflow: hidden;
+    position: relative;
+}
+
+@media (max-width: 500px) {
+    .hidden-left, .hidden-right {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        transition: none !important;  
+    }
+}
+
+.photo {
+    width: 568px;
+    height: 568px;
+    border-radius: 30px;
+    margin-top: -40px;
+    margin-left: 40px;
+
+    @media screen and (max-width: 750px) {
+        margin-top: unset;
+        margin-left: unset;
+    }
+
+    @media screen and (max-width: 620px) {
+        height: auto;
+        width: 100%;
+    }
+}

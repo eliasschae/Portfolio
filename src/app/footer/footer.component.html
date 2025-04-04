@@ -1,0 +1,38 @@
+<div class="footer">
+    <div class="footer-left">
+        <div class="profile">
+            <a>Web Developer</a>
+            <a>Hohenau Paraguay</a>
+        </div>
+    </div>    
+    <div class="footer-center">
+        <span class="footer-span1">© Elias Schäfer 2025</span>
+    </div>
+    <div class="footer-right">
+        <a href="https://github.com/eliasschae" target="_blank" rel="noopener noreferrer">Github</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Email</a>
+        <a href="#" (click)="openImprint()">Imprint</a> <!-- Öffnet das Overlay -->
+    </div>    
+</div>
+
+<!-- Imprint-Overlay -->
+<div *ngIf="isImprintVisible" class="imprint-overlay" (click)="closeOnOutsideClick($event)">
+    <div class="imprint-content">
+        <h2>Imprint</h2>
+        <div class="imprint-details">
+            <p>Elias Schäfer</p>
+            <p>Hauptstraße 123</p>
+            <p>12345 Hohenau</p>
+            <p>Paraguay</p>
+        </div>
+        
+        <h3>Contact</h3>
+        <div class="imprint-details">
+            <p>Telefon: +49 (0) 123 45 67 89</p>
+            <p>E-Mail: elias-schaefer1web.de</p>
+        </div>
+        
+        <button class="close-imprint" (click)="closeImprint()">×</button>
+    </div>
+</div>

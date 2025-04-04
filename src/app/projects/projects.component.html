@@ -1,0 +1,189 @@
+<section id="projects" class="portfolio">
+    <div class="project-sec-left">
+        <h3>{{ text['portfolio'] }}</h3>
+        <h2>{{ text['featuredProjects'] }}</h2>
+        <p>{{ text['portfolioDescription'] }}</p>
+
+        <div class="projects">
+            <div class="project" (click)="openPopup('join')">
+                <div class="project-title">
+                    <span class="project-name">Join</span>
+                    <img src="assets/IMG/arrow_outward.png" class="project-icon">
+                </div>
+                <span class="tech-stack">
+                    JavaScript <span class="separator">|</span> HTML <span class="separator">|</span> CSS <span
+                        class="separator">|</span> Firebase
+                </span>
+                <div class="project-image">
+                    <img src="assets/IMG/Group 21.png" alt="Project Preview">
+                </div>
+            </div>
+
+            <!-- Popup für Join -->
+            <div class="popup" *ngIf="popupVisible === 'join'">
+                <div class="popup-content">
+                    <div>
+                        <span class="close" (click)="closePopup()">&times;</span>
+                        <h1>01</h1>
+                        <h2>Join</h2>
+                        <span>{{ text['whatproject'] }}</span>
+                        <p [innerHTML]="getFormattedText(text['taskManagerDescription'])"></p>
+                        <div class="tech-stack-popup">
+                            <div>
+                                <img src="assets/IMG/Javascript.png">
+                                <span>JavaScript</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay (1).png">
+                                <span>HTML</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay.png">
+                                <span>CSS</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/Group.png">
+                                <span>Firebase</span>
+                            </div>
+                        </div>
+                        <div class="popup-links">
+                            <a href="https://github.com/eliasschae/Join-Main" target="_blank" class="popup-link-button">GitHub<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                            <a href="https://elias-schaefer.developerakademie.net/Join-main/login.html" target="_blank" class="popup-link-button">Live Test<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                        </div>
+                    </div>
+                    <div class="popup-image">
+                        <img src="assets/IMG/Frame 372.png" alt="Join Project Preview">
+                    </div>
+                    <div class="next-proyect">
+                        <a (click)="nextProject('join')">Next project<img src="assets/IMG/arrows.png"
+                                class="next-proyect-img"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weitere Projekte -->
+            <div class="projects">
+                <div class="project" (click)="openPopup('sharkie')">
+                    <div class="project-title">
+                        <span class="project-name">Sharkie</span>
+                        <img src="assets/IMG/arrow_outward.png" class="project-icon">
+                    </div>
+                    <span class="tech-stack">
+                        HTML <span class="separator">|</span> CSS <span class="separator">|</span> JavaScript
+                    </span>
+                    <div class="project-image sharkie-image">
+                        <img src="assets/IMG/7842ac6a-8ffd-42c8-b077-828ea87c9844_removalai_preview.png"
+                            alt="Sharkie Preview">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popup für Sharkie -->
+            <div class="popup" *ngIf="popupVisible === 'sharkie'">
+                <div class="popup-content">
+                    <div>
+                        <span class="close" (click)="closePopup()">&times;</span>
+                        <h1>02</h1>
+                        <h2>Sharkie</h2>
+                        <span>{{ text['whatproject'] }}</span>
+                        <p [innerHTML]="getFormattedText(text['taskManagerDescription2'])"></p>
+                        <div class="tech-stack-popup">
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay (1).png">
+                                <span>HTML</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay.png">
+                                <span>CSS</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/Javascript.png">
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="popup-links">
+                            <a href="https://github.com/eliasschae/Sharkie-Game" target="_blank" class="popup-link-button">GitHub<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                            <a href="https://elias-schaefer.developerakademie.net/Sharkie-Game/index.html" target="_blank" class="popup-link-button">Live Test<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                        </div>
+                    </div>
+                    <div class="popup-image">
+                        <img src="assets/IMG/Screenshot Sharkie (1).png" alt="Join Project Preview">
+                    </div>
+                    <div class="next-proyect">
+                        <a (click)="nextProject('sharkie')">Next project<img src="assets/IMG/arrows.png"
+                                class="next-proyect-img"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weitere Projekte -->
+            <div class="projectS">
+                <div class="project" (click)="openPopup('DABubble')">
+                    <div class="project-title">
+                        <span class="project-name">DA Bubble</span>
+                        <img src="assets/IMG/arrow_outward.png" class="project-icon">
+                    </div>
+                    <span class="tech-stack">
+                        Angular <span class="separator">|</span> Firebase <span class="separator">|</span> TypeScript
+                    </span>
+                    <div class="project-image dabubble-image">
+                        <img src="assets/IMG/Group 23.png" alt="Sharkie Preview">
+                    </div>
+                </div>
+            </div>
+            <div class="project-2"></div>
+
+            <!-- Popup für dA -->
+            <div class="popup" *ngIf="popupVisible === 'DABubble'">
+                <div class="popup-content">
+                    <div>
+                        <span class="close" (click)="closePopup()">&times;</span>
+                        <h1 class="h1-03">03</h1>
+                        <h2>DA Bubble</h2>
+                        <span>{{ text['whatproject'] }}</span>
+                        <p [innerHTML]="getFormattedText(text['taskManagerDescription3'])"></p>
+                        <div class="tech-stack-popup">
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay.png">
+                                <span>CSS</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay (1).png">
+                                <span>HTML</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/Group.png">
+                                <span>Firebase</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay (2).png">
+                                <span>Angular</span>
+                            </div>
+                            <div>
+                                <img src="assets/IMG/21. Icons - Overlay (3).png">
+                                <span>TypeScript</span>
+                            </div>
+                        </div>
+                        <div class="popup-links">
+                            <a href="" target="_blank" class="popup-link-button">GitHub<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                            <a href="" target="_blank" class="popup-link-button">Live Test<img
+                                    src="assets/IMG/arrow_outward (1).png" class="popup-link-icon"></a>
+                        </div>
+                    </div>
+                    <div class="popup-image">
+                        <img class="sharkie-img" src="assets/IMG/Frame 372 (1).png" alt="Join Project Preview">
+                    </div>
+                    <div class="next-proyect">
+                        <a (click)="nextProject('DABubble')">Next project<img src="assets/IMG/arrows.png"
+                                class="next-proyect-img"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+<header>
+    <nav class="navbar">
+        <div class="language-toggle" (click)="toggleLanguage()">
+            <img class="language-button" [src]="currentLanguageImage">
+        </div>
+        <div class="nav-links">
+            <a (click)="scrollTo('about')">{{ text['about'] }}</a>
+            <a (click)="scrollTo('skills')">{{ text['skills'] }}</a>
+            <a (click)="scrollTo('projects')">{{ text['projects'] }}</a>
+        </div>
+    </nav>
+    <img class="logo" src="assets/IMG/Elias_Schäfer-removebg-preview.png" alt="Logo">
+    <img class="menu-icon" src="assets/IMG/2. Menu icon.png" alt="menu-icon" (click)="toggleMenu()">
+
+    <div class="mobile-menu" [class.show]="isMenuOpen">
+        <div class="language-toggle" (click)="toggleLanguage()">
+            <img class="language-button" [src]="currentLanguageImage">
+        </div>
+        <div class="nav-links">
+            <a (click)="scrollTo('about')">{{ text['about'] }}</a>
+            <a (click)="scrollTo('skills')">{{ text['skills'] }}</a>
+            <a (click)="scrollTo('projects')">{{ text['projects'] }}</a>
+        </div>
+    </div>
+</header>

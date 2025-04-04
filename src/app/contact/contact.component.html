@@ -1,0 +1,50 @@
+<section id="contact" class="contact-section">
+    <div class="section-left hidden-left">
+        <span>{{ text['contactMem'] }}</span>
+        <h1>{{ text['letsWorkTogether'] }}</h1>
+        <h3>{{ text['gotAProblem'] }}</h3>
+        <p>
+            {{ text['contactDescription'] }}
+            <br><br> {{ text['needAFrontendDeveloper'] }}
+            <span class="Let’s-talk">{{ text['letsTalke'] }}</span>
+        </p>
+    </div>
+    <div class="section-right hidden-right">
+        <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+            <div>
+                <label for="name">{{ text['whatsYourName'] }}</label>
+                <input class="input" [(ngModel)]="contactData.name" type="text" id="name" name="name"
+                    [placeholder]="placeholders.name" required (blur)="checkEmptyField('name')"
+                    (focus)="restorePlaceholder('name')" autocomplete="off">
+            </div>
+            <div>
+                <label for="email">{{ text['whatsYourEmail'] }}</label>
+                <input class="input" [(ngModel)]="contactData.email" type="email" id="email" name="email"
+                    [placeholder]="placeholders.email" required (blur)="checkEmptyField('email')"
+                    (focus)="restorePlaceholder('email')" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                    autocomplete="off">
+            </div>
+            <div>
+                <label for="message">{{ text['howCanIHelp'] }}</label>
+                <textarea class="input" [(ngModel)]="contactData.message" id="message" name="message"
+                    [placeholder]="placeholders.message" required minlength="4" (blur)="checkEmptyField('message')"
+                    (focus)="restorePlaceholder('message')" autocomplete="off">
+                </textarea>
+            </div>
+            <div class="privacyPolicy-div">
+                <input type="checkbox" id="privacyPolicy" name="privacyPolicy" [(ngModel)]="privacyPolicyAccepted"
+                    (change)="restorePlaceholder('privacyPolicy')">
+                <label class="label-privacyPolicy" for="privacyPolicy">
+                    {{ text['privacyPolicyAgreement'] }}
+                    <a class="label-a">{{ text['privacyPolicy'] }}</a>
+                    {{ text['privacyPolicyConsent'] }}
+                </label>
+            </div>
+            <span id="privacyPolicyError" class="error-message">{{ text['acceptPrivacyPolicy'] }}</span>
+
+            <button type="submit" class="submit-button">
+                <span>{{ text['sayHello'] }}</span>
+            </button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,63 @@
+<div class="Title">
+    <span class="hero-title">
+        Frontend Developer
+    </span>
+    <h1 class="hero-name">
+        Elias Schäfer
+    </h1>
+    <div class="title-buttons">
+        <a class="button-a" (click)="scrollTo('projects')">
+            <span class="a-span">{{ text['checkMyWork'] }}</span>
+        </a>
+        <a class="button-a2" (click)="scrollTo('contact')">
+            <span class="a-span">{{ text['contactMe'] }}</span>
+        </a>
+    </div>
+</div>
+
+<div class="left-seperator">
+    <div class="down-button">
+        <span class="span-down">↓</span>
+    </div>
+    <div class="left-seperator-beam"></div>
+</div>
+
+<div class="right-seperator">
+    <a href=""></a>
+    <a href="">
+        <img src="">
+    </a>
+    <div class="seperator-img-container">
+        <a href="https://github.com/eliasschae" target="_blank" rel="noopener noreferrer">
+            <img class="seperator-img" src="assets/IMG/Property 1=GitHub.png" alt="GitHub">
+        </a>
+        <a href="">
+            <img class="seperator-img2" src="assets/IMG/Property 1=Linkedin.png">
+        </a>
+    </div>
+    <div class="right-seperator-beam"></div>
+</div>
+
+<div class="marquee">
+    <div class="marquee-content">
+      <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['openToWork'] }}</span>
+      <span class="marquee-span">•</span>
+    </div>
+    <!-- Duplicate the content to ensure a seamless loop -->
+    <div class="marquee-content">
+      <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
+      <span class="marquee-span">•</span>
+      <span class="marquee-span">{{ text['openToWork'] }}</span>
+      <span class="marquee-span">•</span>
+    </div>
+</div>

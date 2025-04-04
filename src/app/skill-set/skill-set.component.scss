@@ -1,0 +1,326 @@
+.technologies-section {
+  background: radial-gradient(22.43% 43.85% at 1.22% 52.45%, rgba(8, 70, 59, 0.3) 0%, #1C1C1C 100%);
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 96px;
+
+  @media screen and (max-width: 1420px) {
+    justify-content: center;
+    display: block;
+    padding: 0 20px;
+  }
+
+  .tech-section {
+    margin-top: 20px;
+    display: flex;
+
+    @media screen and (max-width: 1420px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .tech-h1 {
+    font-family: Karla, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #3DCFB6;
+  }
+
+  .skill-section {
+    background: rgba(61, 207, 182, 0.1);
+    border: 1px solid #3DCFB6;
+    border-radius: 30px;
+    width: 520px;
+    padding: 32px;
+
+    @media screen and (max-width: 1420px) {
+      max-width: 520px;
+      width: unset;
+    }
+
+    .skill-h1 {
+      font-family: "Fira Code", monospace;
+      font-size: 64px;
+      font-weight: 700;
+      color: #3DCFB6;
+      margin: 0 0 20px 0;
+
+      @media screen and (max-width: 627px) {
+        font-size: 37px;
+      }
+    }
+
+    .skill-text {
+      font-family: Karla, sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #ffffff;
+      line-height: 1.5;      
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .skill-h2 {
+      font-family: "Fira Code", monospace;
+      font-weight: 700;
+      font-size: 24px;
+      color: #ffffff;
+      margin: 30px 0 8px 0;
+      text-align: left;
+
+      .skill-span {
+        color: #3DCFB6;
+      }
+    }
+
+    .skill-text2 {
+      font-family: Karla, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .talk-button {
+      width: 122px;
+      height: 48px;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      border-radius: 100px;
+      gap: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      overflow: hidden;
+      position: relative;
+      transition: border-color 1s ease;
+
+      .LeTa-text {
+        font-family: Karla, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #ffffff;
+        white-space: nowrap;
+        transform: translateX(0);
+        transition: color 0.3s ease;
+      }
+
+      &:hover {
+        border-color: #3DCFB6;
+
+        .LeTa-text {
+          animation: button-hover-start 0.5s linear 1, button-hover-animation 2s linear infinite 0.5s;
+          color: #3DCFB6;
+        }
+      }
+    }
+  }
+}
+
+@keyframes button-hover-start {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes button-hover-animation {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+@-webkit-keyframes button-hover-start {
+  from {
+    -webkit-transform: translateX(0);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes button-hover-animation {
+  from {
+    -webkit-transform: translateX(200%);
+  }
+  to {
+    -webkit-transform: translateX(-200%);
+  }
+}
+
+.skill-set-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 72px;
+  width: 632px;
+  height: 428px;
+  margin-top: 65px;
+  justify-content: center;
+  margin-left: 96px;
+
+  @media screen and (max-width: 1420px) {
+    margin-left: 0px;
+  }
+
+  .skill-set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative; // Notwendig für das absolute Positionieren des Hover-Images
+
+    span {
+      font-family: "Fira Code", monospace;
+      font-weight: 400;
+      font-size: 18px;
+      color: white;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &.growth-mindset {
+      position: relative;
+
+      img {
+        content: url("/assets/IMG/Property 1=GrowthMindset.png");
+      }
+  
+      &:hover img {
+        content: url("/assets/IMG/Property 1=Hover.png");
+        width: 220px;
+        height: 220px;
+        position: absolute;
+        top: -113px;  
+        left: 15%;
+        z-index: 10;
+      }
+
+      &:hover .hover-none {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .skill-set-section {
+    margin-left: 350px;
+  }
+}
+
+@media screen and (max-width: 1919px) {
+  .skill-set-section {
+    margin-left: 96px;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .skill-set-section {
+    margin-left: unset;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .skill-set-section {
+    display: grid;
+    gap: 32px;
+    width: 320px;
+    height: auto;
+    justify-content: center;
+  }
+
+  .skill-set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-set img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skill-set span {
+    font-size: 14px;
+  }
+
+  .growth-mindset img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .growth-mindset:hover img {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    left: 5%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .skill-set-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .skill-set-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.hidden-left {
+  opacity: 0;
+  transform: translateX(-200px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-right {
+  opacity: 0;
+  transform: translateX(200px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+html, body {
+  overflow-x: hidden; 
+  margin: 0;
+  padding: 0;
+}
+
+.technologies-section {
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  .hidden-left, .hidden-right {
+      opacity: 1 !important;
+      transform: translateX(0) !important;
+      transition: none !important;  
+  }
+}
