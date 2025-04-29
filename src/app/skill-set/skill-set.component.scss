@@ -9,6 +9,7 @@
     justify-content: center;
     display: block;
     padding: 0 20px;
+    height: 1130px;
   }
 
   .tech-section {
@@ -199,13 +200,8 @@
 
     &.growth-mindset {
       position: relative;
-
-      img {
-        content: url("/assets/IMG/Property 1=GrowthMindset.png");
-      }
   
       &:hover img {
-        content: url("/assets/IMG/Property 1=Hover.png");
         width: 220px;
         height: 220px;
         position: absolute;
@@ -281,6 +277,10 @@
   .skill-set-section {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .technologies-section {
+    height: 1450px;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -322,5 +322,12 @@ html, body {
       opacity: 1 !important;
       transform: translateX(0) !important;
       transition: none !important;  
+  }
+}
+
+@media screen and (max-width: 454px) {
+  .technologies-section {
+    height: 1450px;
+    height: 1692px;
   }
 }

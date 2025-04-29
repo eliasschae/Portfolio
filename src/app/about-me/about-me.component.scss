@@ -64,7 +64,6 @@
 }
 
 .AboutMe-IMG {
-    background-image: url('/assets/IMG/Capa_1.png');
     width: 100%;
     max-width: 568px;
     height: 558px;
@@ -198,6 +197,13 @@ html, body {
     overflow: hidden;
     position: relative;
 }
+
+@media screen and (max-width: 621px) {
+    .AboutMe-IMG {
+        background-image: none !important;
+    }
+}
+
 
 @media (max-width: 500px) {
     .hidden-left, .hidden-right {

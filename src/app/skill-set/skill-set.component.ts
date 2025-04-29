@@ -9,6 +9,7 @@ import { TranslationService } from '../services/translation.service';
   styleUrl: './skill-set.component.scss'
 })
 export class SkillSetComponent {
+  isHovering = false;
   public text: { [key: string]: string } = {};
   
   constructor(private translationService: TranslationService, private elRef: ElementRef) {
