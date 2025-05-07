@@ -302,3 +302,48 @@
     transform: translateX(-100%);
   }
 }
+
+.vertical-email {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  color: #D9D9D9;
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #3dcfb6;
+  }
+
+  @media screen and (max-width: 876px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 490px) {
+    font-size: 12px;
+  }
+}
+
+.vertical-email {
+  display: block;
+}
+
+.email-icon {
+  display: none;
+}
+
+.email-img:hover {
+  content: url('/assets/IMG/Property 1=Mail Hover.png');
+}
+
+@media screen and (max-width: 990px) {
+  .vertical-email {
+    display: none;
+  }
+
+  .email-icon {
+    display: block;
+  }
+}

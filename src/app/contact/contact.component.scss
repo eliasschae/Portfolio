@@ -290,3 +290,20 @@ html, body {
         transition: none !important;  
     }
 }
+
+.privacy-policy-section {
+    padding: 40px;
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+    color: #ffffff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.privacy-policy-section {
+    display: none;
+}
+.privacy-policy-section.show {
+    display: block;
+}  
