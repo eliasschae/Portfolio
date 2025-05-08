@@ -291,12 +291,6 @@ html, body {
     }
 }
 
-.privacy-policy-section {
-    padding: 40px;
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
-    color: #ffffff;
-}
-
 .hidden {
     display: none !important;
 }
@@ -307,3 +301,49 @@ html, body {
 .privacy-policy-section.show {
     display: block;
 }  
+
+
+.privacy-policy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+    overflow-y: auto;
+    z-index: 9999;
+    color: #ffffff;
+}
+  
+.privacy-policy-content {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+  
+
+.privacy-policy-content h1 {
+    margin-top: 0;
+    padding-top: 0;
+}
+  
+
+.hidden {
+    display: none !important;
+}
+
+.index-link {
+    color: #3DCFB6;
+}
+
+.E-Mail {
+    color: #3DCFB6;
+}
+
+.Impressum {
+    color: #3DCFB6;
+}
+
+.Website {
+    color: #3DCFB6;
+}

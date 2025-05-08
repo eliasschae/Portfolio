@@ -26,14 +26,18 @@ export class ContactComponent {
       window.location.reload();
     }, 300);
   }
-  
+
   openPrivacyPolicy(event: Event) {
     event.preventDefault();
-    const section = this.elRef.nativeElement.querySelector('#privacy-policy');
-    if (section) {
-      section.classList.add('show');
-    }
-  }  
+    document.getElementById('privacy-policy-overlay')?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Scrollen deaktivieren
+  }
+
+  closePrivacyPolicy() {
+    document.getElementById('privacy-policy-overlay')?.classList.add('hidden');
+    document.body.style.overflow = ''; // Scrollen wieder aktivieren
+  }
+  
 
   constructor(private translationService: TranslationService, private elRef: ElementRef) {
       this.translationService.text$.subscribe((text) => {

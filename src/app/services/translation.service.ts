@@ -99,14 +99,17 @@ export class TranslationService {
     }
   };  
 
-  private currentLanguage = new BehaviorSubject<string>('en');
+  private currentLangKey = 'selectedLanguage';
+  private savedLang = (localStorage.getItem(this.currentLangKey) as 'en' | 'de') || 'en';
+  private currentLanguage = new BehaviorSubject<string>(this.savedLang);
   public language$ = this.currentLanguage.asObservable();
 
-  private currentText = new BehaviorSubject<{ [key: string]: string }>(this.translations.en);
+  private currentText = new BehaviorSubject<{ [key: string]: string }>(this.translations[this.savedLang]);
   public text$ = this.currentText.asObservable();
-
+  
   switchLanguage(lang: 'en' | 'de') {
+    localStorage.setItem(this.currentLangKey, lang);
     this.currentLanguage.next(lang);
     this.currentText.next(this.translations[lang]);
-  }
+  }  
 }

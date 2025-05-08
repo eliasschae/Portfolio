@@ -248,18 +248,6 @@
 
     img {
       transition: all 0.3s ease;
-
-      &.seperator-img {
-        &:hover {
-          content: url("/assets/IMG/Property 1=GitHub Hover.png");
-        }
-      }
-
-      &.seperator-img2 {
-        &:hover {
-          content: url("/assets/IMG/Property 1=Linkedin Hovevr.png");
-        }
-      }
     }
   }
 }

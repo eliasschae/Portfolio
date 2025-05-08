@@ -9,6 +9,10 @@ import { TranslationService } from '../services/translation.service';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
+  isGitHubHovering = false;
+  isLinkedinHovering = false;
+  isEmailHovering = false;
+
   public text: { [key: string]: string } = {};
 
   constructor(private translationService: TranslationService) {

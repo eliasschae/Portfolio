@@ -24,7 +24,12 @@ export class HeaderComponent {
     this.translationService.text$.subscribe((text) => {
       this.text = text;
     });
-  }
+  
+    this.translationService.language$.subscribe((lang) => {
+      this.isEnglish = lang === 'en';
+      this.currentLanguageImage = this.isEnglish ? this.englishImage : this.germanImage;
+    });
+  }  
 
   toggleLanguage() {
     this.isEnglish = !this.isEnglish;

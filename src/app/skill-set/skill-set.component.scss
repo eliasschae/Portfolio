@@ -179,7 +179,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    position: relative; // Notwendig für das absolute Positionieren des Hover-Images
+    position: relative;
 
     span {
       font-family: "Fira Code", monospace;
@@ -206,8 +206,7 @@
         height: 220px;
         position: absolute;
         top: -113px;  
-        left: 15%;
-        z-index: 10;
+        
       }
 
       &:hover .hover-none {

@@ -24,40 +24,48 @@
 
 <div class="right-seperator">
     <a class="vertical-email" href="mailto:elias-schaefer1@web.de">elias-schaefer1&#64;web.de</a>
-    <a class="email-icon" href="mailto:elias-schaefer1@web.de">
-        <img class="email-img" src="assets/IMG/Property 1=Mail.png" alt="Email Icon">
-    </a>      
+    <a class="email-icon" href="mailto:elias-schaefer1@web.de" (mouseenter)="isEmailHovering = true"
+        (mouseleave)="isEmailHovering = false">
+        <img [src]="isEmailHovering ? './assets/IMG/Property 1=Mail Hover.png' : './assets/IMG/Property 1=Mail.png'"
+            alt="Email Icon" class="email-img">
+    </a>
+
     <div class="seperator-img-container">
-        <a href="https://github.com/eliasschae" target="_blank" rel="noopener noreferrer">
-            <img class="seperator-img" src="assets/IMG/Property 1=GitHub.png" alt="GitHub">
+        <a href="https://github.com/eliasschae" target="_blank" rel="noopener noreferrer"
+            (mouseenter)="isGitHubHovering = true" (mouseleave)="isGitHubHovering = false">
+            <img [src]="isGitHubHovering ? './assets/IMG/Property 1=GitHub Hover.png' : './assets/IMG/Property 1=GitHub.png'"
+                alt="GitHub Icon">
         </a>
-        <a href="">
-            <img class="seperator-img2" src="assets/IMG/Property 1=Linkedin.png">
+        <a href="https://linkedin.com/in/eliasschae" target="_blank" rel="noopener noreferrer"
+            (mouseenter)="isLinkedinHovering = true" (mouseleave)="isLinkedinHovering = false">
+            <img [src]="isLinkedinHovering ? './assets/IMG/Property 1=Linkedin Hovevr.png' : './assets/IMG/Property 1=Linkedin.png'"
+                alt="LinkedIn Icon">
         </a>
     </div>
+
     <div class="right-seperator-beam"></div>
 </div>
 
 <div class="marquee">
     <div class="marquee-content">
-      <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['openToWork'] }}</span>
-      <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['openToWork'] }}</span>
+        <span class="marquee-span">•</span>
     </div>
     <!-- Duplicate the content to ensure a seamless loop -->
     <div class="marquee-content">
-      <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
-      <span class="marquee-span">•</span>
-      <span class="marquee-span">{{ text['openToWork'] }}</span>
-      <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['availableRemoteWork'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['frontendDeveloper'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['basedInParaguay'] }}</span>
+        <span class="marquee-span">•</span>
+        <span class="marquee-span">{{ text['openToWork'] }}</span>
+        <span class="marquee-span">•</span>
     </div>
 </div>
