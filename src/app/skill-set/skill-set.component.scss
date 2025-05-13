@@ -180,40 +180,45 @@
     align-items: center;
     gap: 8px;
     position: relative;
-
+  
     span {
       font-family: "Fira Code", monospace;
       font-weight: 400;
-      font-size: 18px;
+     font-size: 18px;
       color: white;
     }
 
     img {
       width: 64px;
       height: 64px;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.3s ease-in;
+    }
 
-      &:hover {
-        transform: scale(1.1);
-      }
+    img:hover {
+      transform: scale(1.1);
     }
 
     &.growth-mindset {
       position: relative;
-  
-      &:hover img {
-        width: 220px;
-        height: 220px;
+
+      .hover-image {
         position: absolute;
-        top: -113px;  
-        
+        top: -140px;
+        left: -16px;
+        width: 250px;
+        height: auto;
+        display: none;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
       }
 
-      &:hover .hover-none {
-        display: none;
+      .hover-image.visible {
+        display: block;
+        opacity: 1;
       }
-    }
-  }
+    }  
+  }  
 }
 
 @media screen and (max-width: 1920px) {

@@ -10,13 +10,12 @@
     </div>
     <div class="footer-right">
         <a href="https://github.com/eliasschae" target="_blank" rel="noopener noreferrer">Github</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
         <a href="#">Email</a>
-        <a href="#" (click)="openImprint()">Imprint</a> <!-- Öffnet das Overlay -->
+        <a href="#" (click)="openImprint()">Imprint</a>
     </div>    
 </div>
 
-<!-- Imprint-Overlay -->
 <div *ngIf="isImprintVisible" class="imprint-overlay" (click)="closeOnOutsideClick($event)">
     <div class="imprint-content">
         <h2>Imprint</h2>

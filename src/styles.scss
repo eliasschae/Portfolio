@@ -1,19 +1,20 @@
 html, body {
-    margin: 0;
-    max-width: 100%;
-    max-width: 1920px;
-    background-color: #1C1C1C;
+  margin: 0 auto; 
+  max-width: 1920px; 
+  min-width: 320px; 
+  background-color: #1C1C1C;
+  padding: 0; 
 }
 
 app-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
-    min-height: 100vh;
-    overflow-x: clip;
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  min-height: 100vh;
+  overflow-x: clip;
+  background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
 }
 
 ::-webkit-scrollbar {

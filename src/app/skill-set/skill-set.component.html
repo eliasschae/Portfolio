@@ -58,8 +58,10 @@
                 <span>Scrum</span>
             </div>
             <div class="skill-set growth-mindset" (mouseenter)="isHovering = true" (mouseleave)="isHovering = false">
-                <img
-                    [src]="isHovering ? './assets/IMG/Property 1=Hover.png' : './assets/IMG/Property 1=GrowthMindset.png'">
+
+                <img src="./assets/IMG/Property 1=GrowthMindset.png" class="base-image">
+                <img src="./assets/IMG/Group 18.png" class="hover-image" [class.visible]="isHovering">
+
                 <span class="hover-none">Growth<br>mindset</span>
             </div>
         </div>

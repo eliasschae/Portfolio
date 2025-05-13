@@ -77,6 +77,7 @@
      display: inline-block;
      white-space: nowrap;
      transform: translateX(0);
+     animation: none;
      transition: transform 0s linear;
     }
 
@@ -334,4 +335,14 @@
   .email-icon {
     display: block;
   }
+}
+
+.separator-container{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 1920px;
+  margin: 0 auto;
 }

@@ -95,24 +95,20 @@ export class ContactComponent {
   };
 
   onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      console.log("Absenden:", this.contactData);
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: (response) => {
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error(error);
-          },
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+  if (ngForm.submitted && ngForm.form.valid) {
+    console.log("Absenden:", this.contactData);
+
+    if (!this.mailTest) {
+      // Hier normalerweise der POST-Request – aber wir simulieren ihn nur
+      console.info('Simulierter Versand... (kein Request gesendet)');
+    } else {
       console.log("Mail-Test aktiviert, Daten werden nicht gesendet.");
-      console.log(this.contactData);
+    }
+
       ngForm.resetForm();
     }
   }
+
 
   checkEmptyField(field: keyof typeof this.contactData | "privacyPolicy") {
     if (field === "privacyPolicy") {

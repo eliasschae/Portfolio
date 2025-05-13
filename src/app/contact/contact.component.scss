@@ -347,3 +347,8 @@ html, body {
 .Website {
     color: #3DCFB6;
 }
+
+a.Website {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
