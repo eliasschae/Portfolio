@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, Validators } from '@angular/forms';
 import { TranslationService } from '../services/translation.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +15,18 @@ import { TranslationService } from '../services/translation.service';
 
 export class ContactComponent {
   public text: { [key: string]: string } = {};
+
+  emailInvalid: boolean = false;
+  formSubmitted: boolean = false; 
+
+  checkEmailValidity() {
+    const emailRegex = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/;
+    this.emailInvalid = !emailRegex.test(this.contactData.email);
+    const errorElement = document.getElementById('emailError');
+    if (errorElement) {
+        errorElement.style.display = this.emailInvalid ? 'block' : 'none';
+    }
+  }
   
   reloadPage() {
     const privacySection = this.elRef.nativeElement.querySelector('#privacy-policy');
@@ -27,23 +40,51 @@ export class ContactComponent {
     }, 300);
   }
 
-  openPrivacyPolicy(event: Event) {
-    event.preventDefault();
-    document.getElementById('privacy-policy-overlay')?.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Scrollen deaktivieren
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe(params => {
+      const showPrivacy = params.has('privacyPolicy');
+      if (showPrivacy) {
+        this.openPrivacyPolicy(null);
+      }
+    });
+  }
+
+  openPrivacyPolicy(event: Event | null) {
+   if (event) event.preventDefault();
+
+    const overlay = document.getElementById('privacy-policy-overlay');
+    overlay?.classList.remove('hidden');
+    overlay?.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    const url = new URL(window.location.href);
+    const currentParams = new URLSearchParams(url.search);
+    currentParams.delete('imprint'); 
+    currentParams.set('privacyPolicy', '');
+
+    const newUrl = `${window.location.pathname}?${currentParams.toString()}`;
+    window.history.replaceState({}, '', newUrl);
   }
 
   closePrivacyPolicy() {
-    document.getElementById('privacy-policy-overlay')?.classList.add('hidden');
-    document.body.style.overflow = ''; // Scrollen wieder aktivieren
-  }
-  
+    const overlay = document.getElementById('privacy-policy-overlay');
+    overlay?.classList.remove('show');
+    overlay?.classList.add('hidden');
+    document.body.style.overflow = '';
 
-  constructor(private translationService: TranslationService, private elRef: ElementRef) {
-      this.translationService.text$.subscribe((text) => {
-        this.text = text;
-      });
-    }
+    const url = new URL(window.location.href);
+    url.searchParams.delete('privacyPolicy');
+    window.history.replaceState({}, '', `${window.location.pathname}?${url.searchParams.toString()}`);
+  }
+
+  constructor(
+    private translationService: TranslationService,
+    private elRef: ElementRef,
+    private route: ActivatedRoute 
+  ) {
+    this.translationService.text$.subscribe((text) => {
+      this.text = text;
+    });
+  }
   
     ngAfterViewInit(): void {
       const elements = this.elRef.nativeElement.querySelectorAll('.hidden-left, .hidden-right');
@@ -94,48 +135,100 @@ export class ContactComponent {
     },
   };
 
-  onSubmit(ngForm: NgForm) {
-  if (ngForm.submitted && ngForm.form.valid) {
-    console.log("Absenden:", this.contactData);
+  validateField(field: 'name' | 'message') {
+    const value = this.contactData[field];
+    const element = document.getElementById(field);
+    const errorElement = document.getElementById(`${field}Error`);
 
-    if (!this.mailTest) {
-      // Hier normalerweise der POST-Request – aber wir simulieren ihn nur
-      console.info('Simulierter Versand... (kein Request gesendet)');
+    if (!value) {
+        this.checkEmptyField(field);
+        if (errorElement) errorElement.style.display = 'none';
+    } else if (value.trim().length < 4) {
+        element?.classList.add('error');
+        if (errorElement) errorElement.style.display = 'block';
+        this.restorePlaceholder(field); 
     } else {
-      console.log("Mail-Test aktiviert, Daten werden nicht gesendet.");
-    }
-
-      ngForm.resetForm();
+        element?.classList.remove('error');
+        if (errorElement) errorElement.style.display = 'none';
+        this.restorePlaceholder(field);
     }
   }
 
+  validateEmailField() {
+    if (!this.contactData.email) {
+        this.checkEmptyField('email');
+        const errorElement = document.getElementById('emailError');
+        if (errorElement) errorElement.style.display = 'none';
+    } else {
+        this.checkEmailValidity();
+        const errorElement = document.getElementById('emailError');
+        if (errorElement) {
+            errorElement.style.display = this.emailInvalid ? 'block' : 'none';
+            errorElement.textContent = this.emailInvalid 
+                ? this.text['invalidEmailError'] 
+                : this.text['emailRequiredError'];
+        }
+        this.restorePlaceholder('email');
+    }
+  }
+
+  onSubmit(ngForm: NgForm) {
+        this.formSubmitted = true;
+        this.checkEmailValidity();
+        this.validateField('name');
+        this.validateField('message');
+
+        if (!this.privacyPolicyAccepted) {
+            console.log("Absendeversuch: Datenschutzrichtlinie nicht akzeptiert.");
+            return;
+        }
+
+        if (ngForm.form.valid && !this.emailInvalid && 
+            this.contactData.name.trim().length >= 4 && 
+            this.contactData.message.trim().length >= 4) {
+            
+            console.log("Absenden: Alle Validierungen erfolgreich. Daten:", ngForm.value);
+            if (!this.mailTest) {
+                console.info('Simulierter Versand... (kein Request gesendet)');
+            } else {
+                console.log("Mail-Test aktiviert, Daten werden nicht gesendet.");
+            }
+            ngForm.resetForm();
+            this.formSubmitted = false;
+            this.privacyPolicyAccepted = false;
+        } else {
+            console.log("Absendeversuch: Formular ist ungültig.");
+        }
+  }
+  
+  onPrivacyPolicyChange() {
+    console.log("Privacy Policy Accepted: ", this.privacyPolicyAccepted);
+  }
 
   checkEmptyField(field: keyof typeof this.contactData | "privacyPolicy") {
-    if (field === "privacyPolicy") {
-        if (!this.privacyPolicyAccepted) {
-            document.getElementById("privacyPolicyError")!.style.display = "block";
-        }
-        return;
-    }
+      if (field === "privacyPolicy") {
+          return;
+      }
 
-    if (!this.contactData[field]) {
-        if (field === "name") {
-            this.placeholders.name = "Oops! It seems your name is missing";
-        } else if (field === "email") {
-            this.placeholders.email = "Hoppla! Your email is required";
-        } else if (field === "message") {
-            this.placeholders.message = "What do you need to develop?";
-        } else if (field === "checkbox") {
-            this.placeholders.checkbox = "Please accept the privacy policy.";
-        }
-        
-        document.getElementById(field)?.classList.add("error");
-    }
+      if (!this.contactData[field]) {
+          if (field === "name") {
+              this.placeholders.name = "Oops! It seems your name is missing";
+          } else if (field === "email") {
+              this.placeholders.email = "Hoppla! Your email is required";
+              this.emailInvalid = true; 
+          } else if (field === "message") {
+              this.placeholders.message = "What do you need to develop?";
+          } 
+          
+          document.getElementById(field)?.classList.add("error");
+      } else if (field === "email") {
+          this.checkEmailValidity(); 
+      }
   }
 
   restorePlaceholder(field: keyof typeof this.contactData | "privacyPolicy") {
     if (field === "privacyPolicy") {
-        document.getElementById("privacyPolicyError")!.style.display = "none";
+       
         return;
     }
 
@@ -143,6 +236,7 @@ export class ContactComponent {
         this.placeholders.name = "Your name goes here";
     } else if (field === "email") {
         this.placeholders.email = "youremail@email.com";
+        this.emailInvalid = false; 
     } else if (field === "message") {
         this.placeholders.message = "Enter a message...";
     }

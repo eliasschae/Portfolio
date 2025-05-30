@@ -302,23 +302,52 @@ html, body {
     display: block;
 }  
 
-
 .privacy-policy-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
-    overflow-y: auto;
-    z-index: 9999;
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    color: white;
+    
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
 }
-  
+
 .privacy-policy-content {
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
     padding: 40px;
     max-width: 800px;
-    margin: 0 auto;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+    
+    button {
+        background: #3DCFB6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Karla', sans-serif;
+        font-weight: 500;
+        margin-top: 20px;
+        
+        &:hover {
+            background: darken(#3DCFB6, 10%);
+        }
+    }
 }
   
 
@@ -351,4 +380,19 @@ html, body {
 a.Website {
   word-break: break-all;
   overflow-wrap: break-word;
+}
+
+.input.invalid-email {
+  color: #EC7B7BCC !important; 
+}
+
+.error-message {
+    color: #EC7B7BCC;
+    font-size: 14px;
+    display: none;
+    margin-top: 5px;
+}
+
+.input.error {
+    color: #EC7B7BCC !important;
 }

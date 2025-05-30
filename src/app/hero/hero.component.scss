@@ -86,7 +86,11 @@
     }
 
     &:hover .a-span {
-     animation: button-hover-start 0.5s linear 1, button-hover-animation 2s linear infinite 0.5s;
+     animation-name: button-hover-start, button-hover-animation;
+     animation-duration: 0.5s, 2s;
+     animation-delay: 0s, 0.5s;
+     animation-iteration-count: 1, infinite;
+     animation-timing-function: linear, linear;
      color: #3dcfb6;
      transition: color 1s ease;
     }

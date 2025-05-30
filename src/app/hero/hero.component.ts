@@ -6,7 +6,7 @@ import { TranslationService } from '../services/translation.service';
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
   isGitHubHovering = false;

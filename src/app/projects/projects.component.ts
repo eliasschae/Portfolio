@@ -13,7 +13,6 @@ export class ProjectsComponent {
   public text: { [key: string]: string } = {};
   public popupVisible: string | null = null;
 
-  // Liste der Projekte in der Reihenfolge, in der sie angezeigt werden sollen
   private projectOrder: string[] = ['join', 'sharkie', 'DABubble'];
 
   constructor(private translationService: TranslationService) {
@@ -30,13 +29,12 @@ export class ProjectsComponent {
     this.popupVisible = null;
   }
 
-  // Methode, um zum nächsten Projekt zu wechseln
   nextProject(currentProject: string) {
     const currentIndex = this.projectOrder.indexOf(currentProject);
     if (currentIndex !== -1 && currentIndex < this.projectOrder.length - 1) {
       this.popupVisible = this.projectOrder[currentIndex + 1];
     } else {
-      this.popupVisible = this.projectOrder[0]; // Zurück zum ersten Projekt, wenn das Ende erreicht ist
+      this.popupVisible = this.projectOrder[0]; 
     }
   }
 
