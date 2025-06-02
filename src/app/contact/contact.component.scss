@@ -4,6 +4,12 @@
     justify-content: space-between;
     padding: 0 96px;
 
+    @media screen and (min-width: 1921px) {
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .section-left {
         width: 568px;
         
