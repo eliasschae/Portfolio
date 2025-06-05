@@ -14,7 +14,7 @@
             <div>
                 <label for="name">{{ text['whatsYourName'] }}</label>
                 <input class="input" [(ngModel)]="contactData.name" type="text" id="name" name="name"
-                    [placeholder]="placeholders.name" required (blur)="validateField('name')"
+                    [placeholder]="placeholders.name" required (input)="validateField('name')" (blur)="validateField('name')"
                     (focus)="restorePlaceholder('name')" autocomplete="off" minlength="4">
                 <span id="nameError" class="error-message">{{ text['minLengthError'] }}</span>
             </div>
@@ -32,7 +32,7 @@
             <div>
                 <label for="message">{{ text['howCanIHelp'] }}</label>
                 <textarea class="input" [(ngModel)]="contactData.message" id="message" name="message"
-                    [placeholder]="placeholders.message" required minlength="4" (blur)="validateField('message')"
+                    [placeholder]="placeholders.message" required minlength="4" (input)="validateField('message')" (blur)="validateField('message')"
                     (focus)="restorePlaceholder('message')" autocomplete="off">
                 </textarea>
                 <span id="messageError" class="error-message">{{ text['minLengthError'] }}</span>
@@ -57,6 +57,9 @@
                 [ngClass]="{ 'active-button': isFormValid() }">
                 <span>{{ text['sayHello'] }}</span>
             </button>
+            <div *ngIf="showSuccessMessage" class="success-message">
+                {{ text['messageSentSuccess'] }}
+            </div>
         </form>
     </div>
 </section>

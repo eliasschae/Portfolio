@@ -284,3 +284,17 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.success-message {
+  margin-top: 16px;
+  color: #3DCFB6;
+  font-size: 16px;
+  font-family: Karla;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}

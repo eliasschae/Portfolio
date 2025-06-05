@@ -18,6 +18,7 @@ export class ContactComponent {
 
   emailInvalid: boolean = false;
   formSubmitted: boolean = false; 
+  showSuccessMessage = false;
 
   checkEmailValidity() {
     const emailRegex = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/;
@@ -124,36 +125,45 @@ export class ContactComponent {
   }
 
   onSubmit(ngForm: NgForm) {
-        this.formSubmitted = true;
-        this.checkEmailValidity();
-        this.validateField('name');
-        this.validateField('message');
+  this.formSubmitted = true;
+  this.checkEmailValidity();
+  this.validateField('name');
+  this.validateField('message');
 
-        if (!this.privacyPolicyAccepted) {
-            console.log("Absendeversuch: Datenschutzrichtlinie nicht akzeptiert.");
-            return;
-        }
+  if (!this.privacyPolicyAccepted) {
+    console.log("Absendeversuch: Datenschutzrichtlinie nicht akzeptiert.");
+    return;
+  }
 
-        if (ngForm.form.valid && !this.emailInvalid && 
-            this.contactData.name.trim().length >= 4 && 
-            this.contactData.message.trim().length >= 4) {
-            
-            console.log("Absenden: Alle Validierungen erfolgreich. Daten:", ngForm.value);
-            if (!this.mailTest) {
-                console.info('Simulierter Versand... (kein Request gesendet)');
-            } else {
-                console.log("Mail-Test aktiviert, Daten werden nicht gesendet.");
-            }
-            ngForm.resetForm();
-            this.formSubmitted = false;
-            this.privacyPolicyAccepted = false;
-        } else {
-            console.log("Absendeversuch: Formular ist ungültig.");
-        }
+  if (ngForm.form.valid && !this.emailInvalid &&
+      this.contactData.name.trim().length >= 4 &&
+      this.contactData.message.trim().length >= 4) {
+    
+
+    if (!this.mailTest) {
+      
+    } else {
+      
+    }
+
+    
+    ngForm.resetForm();
+    this.formSubmitted = false;
+    this.privacyPolicyAccepted = false;
+    this.showSuccessMessage = true;
+
+    
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 3000);
+
+    } else {
+      
+    }
   }
   
   onPrivacyPolicyChange() {
-    console.log("Privacy Policy Accepted: ", this.privacyPolicyAccepted);
+    
   }
 
   checkEmptyField(field: keyof typeof this.contactData | "privacyPolicy") {

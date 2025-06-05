@@ -147,6 +147,7 @@ export class TranslationService {
       moreInfo: "More information:",
       CreatedPri: "Created with the free privacy policy generator by Dr. Thomas Schwenke",
       backBu: "Back to main",
+      messageSentSuccess: 'Message sent successfully!',
     },
 
     de: {
@@ -288,6 +289,7 @@ export class TranslationService {
       moreInfo: "Weitere Informationen:",
       CreatedPri: "Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke",
       backBu: "Zurück zum Hauptmenü",
+      messageSentSuccess: 'Nachricht wurde erfolgreich gesendet!',
     }
   };  
 
