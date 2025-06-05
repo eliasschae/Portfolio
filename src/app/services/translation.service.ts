@@ -194,6 +194,8 @@ export class TranslationService {
       taskManagerDescription: "Task-Manager inspiriert vom Kanban-System. Erstelle und\n organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise\n Benutzer und Kategorien zu.",
       taskManagerDescription2: "Ein einfaches Jump-and-Run-Spiel basierend auf einem objektorientierten Ansatz. Hilf Sharkie,\n Münzen und Giftflaschen zu finden, um gegen den Killerwal zu kämpfen.",
       taskManagerDescription3: "Diese App ist eine Slack-ähnliche Anwendung. Sie revolutioniert die Teamkommunikation und Zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeit-Nachrichtenübermittlung und eine robuste Kanalorganisation.",
+      minLengthError: "Mindestens 4 Zeichen erforderlich.",
+      emailRequiredError: "Hoppla! Ihre E-Mail-Adresse ist erforderlich.",
       privacypolicy: "Datenschutzerklärung",
       lastupdated: "Stand: 30. April 2025",
       tablecontents: "Inhaltsübersicht",
