@@ -1,7 +1,13 @@
 <app-header></app-header>
-<app-hero></app-hero>
-<app-about-me></app-about-me>
-<app-skill-set></app-skill-set>
-<app-projects></app-projects>
-<app-contact></app-contact>
+
+<ng-container *ngIf="isHomeRoute">
+  <app-hero></app-hero>
+  <app-about-me></app-about-me>
+  <app-skill-set></app-skill-set>
+  <app-projects></app-projects>
+  <app-contact></app-contact>
+</ng-container>
+
+<router-outlet></router-outlet>
+
 <app-footer></app-footer>

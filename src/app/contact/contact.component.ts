@@ -3,12 +3,12 @@ import { Component, inject, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm, Validators } from '@angular/forms';
 import { TranslationService } from '../services/translation.service';
-import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,RouterModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -27,59 +27,10 @@ export class ContactComponent {
         errorElement.style.display = this.emailInvalid ? 'block' : 'none';
     }
   }
-  
-  reloadPage() {
-    const privacySection = this.elRef.nativeElement.querySelector('#privacy-policy');
-  
-    if (privacySection) {
-      privacySection.classList.add('hidden');
-    }
-  
-    setTimeout(() => {
-      window.location.reload();
-    }, 300);
-  }
-
-  ngOnInit(): void {
-    this.route.queryParamMap.subscribe(params => {
-      const showPrivacy = params.has('privacyPolicy');
-      if (showPrivacy) {
-        this.openPrivacyPolicy(null);
-      }
-    });
-  }
-
-  openPrivacyPolicy(event: Event | null) {
-   if (event) event.preventDefault();
-
-    const overlay = document.getElementById('privacy-policy-overlay');
-    overlay?.classList.remove('hidden');
-    overlay?.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    const url = new URL(window.location.href);
-    const currentParams = new URLSearchParams(url.search);
-    currentParams.delete('imprint'); 
-    currentParams.set('privacyPolicy', '');
-
-    const newUrl = `${window.location.pathname}?${currentParams.toString()}`;
-    window.history.replaceState({}, '', newUrl);
-  }
-
-  closePrivacyPolicy() {
-    const overlay = document.getElementById('privacy-policy-overlay');
-    overlay?.classList.remove('show');
-    overlay?.classList.add('hidden');
-    document.body.style.overflow = '';
-
-    const url = new URL(window.location.href);
-    url.searchParams.delete('privacyPolicy');
-    window.history.replaceState({}, '', `${window.location.pathname}?${url.searchParams.toString()}`);
-  }
 
   constructor(
     private translationService: TranslationService,
     private elRef: ElementRef,
-    private route: ActivatedRoute 
   ) {
     this.translationService.text$.subscribe((text) => {
       this.text = text;
@@ -243,4 +194,19 @@ export class ContactComponent {
 
     document.getElementById(field)?.classList.remove("error");
   }
+
+  isFormValid(): boolean {
+    const name = typeof this.contactData.name === 'string' ? this.contactData.name.trim() : '';
+    const email = typeof this.contactData.email === 'string' ? this.contactData.email.trim() : '';
+    const message = typeof this.contactData.message === 'string' ? this.contactData.message.trim() : '';
+
+    return (
+      name.length >= 4 &&
+      message.length >= 4 &&
+      email !== '' &&
+      !this.emailInvalid &&
+      this.privacyPolicyAccepted
+    );
+  }
+
 }

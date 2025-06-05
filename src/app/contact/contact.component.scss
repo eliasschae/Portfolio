@@ -1,404 +1,286 @@
 .contact-section {
-    margin-top: 120px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 96px;
+  margin-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 96px;
+  overflow: hidden;
+  position: relative;
 
-    @media screen and (min-width: 1921px) {
-      max-width: 1320px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  @media screen and (min-width: 1921px) {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .section-left {
-        width: 568px;
-        
-        span {
-           font-family: Karla;
-           font-weight: 500;
-           font-size: 24px;
-           color: #3DCFB6;
-        }
+  @media screen and (max-width: 1420px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+}
 
-        .Let’s-talk {
-           font-family: Karla;
-           font-weight: 700;
-           font-size: 16px;
-           color: #3DCFB6;
-        }
+.section-left {
+  width: 568px;
 
-        h1 {
-            font-family: Fira Code;
-            font-weight: 700;
-            font-size: 64px;
-            color: #3DCFB6;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+  span, .Let’s-talk {
+    font-family: Karla;
+    font-weight: 500;
+    font-size: 24px;
+    color: #3DCFB6;
+  }
 
-        h3 {
-            font-family: Fira Code;
-            font-weight: 700;
-            font-size: 24px;
-            color: #3DCFB6;
-        }
+  .Let’s-talk {
+    font-weight: 700;
+    font-size: 16px;
+  }
 
-        p {
-            font-family: Karla;
-            font-weight: 400;
-            font-size: 16px;
-            color: #FFFFFF;
-        }
-    }
+  h1 {
+    font-family: Fira Code;
+    font-weight: 700;
+    font-size: 64px;
+    color: #3DCFB6;
+    margin: 0;
+  }
+
+  h3 {
+    font-family: Fira Code;
+    font-weight: 700;
+    font-size: 24px;
+    color: #3DCFB6;
+  }
+
+  p {
+    font-family: Karla;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+
+  @media screen and (max-width: 1420px) {
+    margin-bottom: 32px;
+    h1 { font-size: 48px !important; }
+    h3 { font-size: 20px !important; }
+    span, .Let’s-talk { font-size: 20px !important; }
+    p { font-size: 14px !important; }
+  }
+
+  @media screen and (max-width: 627px) {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 550px) {
+    h1 { font-size: 38px !important; }
+  }
+
+  @media screen and (max-width: 430px) {
+    h1 { font-size: 28px !important; }
+  }
 }
 
 .section-right {
-    width: 616px;
+  width: 616px;
 
-    div {
-        border-top: 1px solid #3DCFB6;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 32px;
+  div {
+    border-top: 1px solid #3DCFB6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 32px;
 
-        label {
-            font-family: Fira Code;
-            font-weight: 500;
-            font-size: 24px;
-            color: #3DCFB6;
-        }
-
-        .label-privacyPolicy {
-            font-family: Karla;
-            font-weight: 400;
-            font-size: 15px;
-            color: #FFFFFF;
-
-            .label-a {
-                color: #3DCFB6;
-                font-family: Fira Code;
-                font-weight: 400;
-                font-size: 15px;
-                text-decoration: none;
-                position: relative;
-
-                &:hover {
-                    color: white;
-                }
-            }
-        }
-
-        .input {
-            width: 100%;
-            color: #FFFFFFCC;
-            border-style: none;
-            background: none;
-            resize: none;
-            font-family: Karla;
-            font-weight: 400;
-            font-size: 18px;
-        }
+    label {
+      font-family: Fira Code;
+      font-weight: 500;
+      font-size: 24px;
+      color: #3DCFB6;
     }
+
+    .label-privacyPolicy {
+      font-family: Karla;
+      font-weight: 400;
+      font-size: 15px;
+      color: #FFFFFF;
+
+      .label-a {
+        color: #3DCFB6;
+        font-family: Fira Code;
+        font-weight: 400;
+        font-size: 15px;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+          color: white;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 100%;
+          height: 1px;
+          background-color: #3DCFB6;
+          transform: scaleX(0);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+    .input {
+      width: 100%;
+      color: #FFFFFFCC;
+      border: none;
+      background: none;
+      resize: none;
+      font-family: Karla;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  .privacyPolicy-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #3DCFB6;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      &:checked::before {
+        content: "✓";
+        color: #3DCFB6;
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        line-height: 1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1420px) {
+    width: 100%;
+    max-width: 616px;
 
     .privacyPolicy-div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;     
+      flex-direction: column;
+      align-items: flex-start;
     }
+  }
 }
 
-.privacyPolicy-div input[type="checkbox"] {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    min-width: 18px;
-    min-height: 18px;
-    max-width: 18px;
-    max-height: 18px;
-    border: 2px solid #3DCFB6;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.submit-button {
+  border: 1px solid #FFFFFF80;
+  width: 139px;
+  height: 48px;
+  border-radius: 100px;
+  background: transparent;
+  margin-left: 35%;
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  span {
+    color: #FFFFFF80;
+  }
+
+  &.active-button {
+    background-color: #3DCFB6;
     cursor: pointer;
-    position: relative;
-    flex-shrink: 0;
-    transform: none;
+    opacity: 1;
+    border-color: #3DCFB6;
+
+    span {
+      color: #000000;
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (max-width: 430px) {
+    margin-left: 25%;
+  }
 }
 
-.privacyPolicy-div input[type="checkbox"]:checked::before {
-    content: "✓";
-    color: #3DCFB6;
-    font-size: 16px;
-    font-weight: bold;
-    position: absolute;
-    line-height: 1;
-    transform: none;
-}  
+.input:focus,
+textarea:focus {
+  outline: none;
+  border: none;
+}
 
-input::placeholder, 
+.input::placeholder,
 textarea::placeholder {
   color: #FFFFFFCC;
   opacity: 1;
 }
 
 .input.error::placeholder {
-    color: #EC7B7BCC;
-}
-
-.input:focus, 
-textarea:focus {
-  outline: none;
-  border: none;
+  color: #EC7B7BCC;
 }
 
 textarea.input {
-    height: 24px;
-    overflow: hidden;
-    resize: none;
-    line-height: 24px; 
-}  
+  height: 24px;
+  overflow: hidden;
+  resize: none;
+  line-height: 24px;
+}
 
-.submit-button {
-    border: 1px solid #FFFFFF80;
-    width: 139px;
-    height: 48px;
-    border-radius: 100px;
-    gap: 10px;
-    background: transparent;
-    margin-left: 35%;
-    span {
-      color: #FFFFFFCC;
-    }
+.input.invalid-email,
+.input.error {
+  color: #EC7B7BCC !important;
 }
 
 .error-message {
-    color: #EC7B7BCC;
-    font-size: 14px;
-    display: none;
+  color: #EC7B7BCC;
+  font-size: 14px;
+  display: none;
+  margin-top: 5px;
 }
 
-.label-a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px; 
-    width: 100%;
-    height: 1px; 
-    background-color: #3DCFB6;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-.label-a:hover::after {
-    transform: scaleX(1);
-}
-
-@media screen and (max-width: 1420px) {
-    .contact-section {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       align-content: center;
-       padding: 0 20px;
-    }
-
-    .section-left {
-        margin-bottom: 32px;
-    }
-
-    .section-left h1 {
-        font-size: 48px !important;
-    }
-
-    .section-left h3 {
-        font-size: 20px !important;
-    }
-
-    .section-left span,
-    .section-left .Let’s-talk {
-        font-size: 20px !important;
-    }
-
-    .section-left p {
-        font-size: 14px !important;
-    }
-
-    .section-right {
-        width: 100%;
-        max-width: 616px;
-    }
-
-    .privacyPolicy-div {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-@media screen and (max-width: 627px) {
-    .section-left {
-        max-width: 90%; 
-        margin: 0 auto;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .section-left h1 {
-        font-size: 38px !important;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    .submit-button {
-        margin-left: 25%;
-    }
-
-    .section-left h1 {
-        font-size: 28px !important;
-    }
+.hidden-left,
+.hidden-right {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .hidden-left {
-    opacity: 0;
-    transform: translateX(-200px); 
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(-200px);
 }
 
 .hidden-right {
-    opacity: 0;
-    transform: translateX(200px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateX(200px);
 }
 
 .show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-html, body {
-    overflow-x: hidden; 
-    margin: 0;
-    padding: 0;
-}
-
-.contact-section {
-    overflow: hidden;
-    position: relative;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media (max-width: 500px) {
-    .hidden-left, .hidden-right {
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        transition: none !important;  
-    }
+  .hidden-left,
+  .hidden-right {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition: none !important;
+  }
 }
 
-.hidden {
-    display: none !important;
-}
-
-.privacy-policy-section {
-    display: none;
-}
-.privacy-policy-section.show {
-    display: block;
-}  
-
-.privacy-policy-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    color: white;
-    
-    &.show {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.privacy-policy-content {
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
-    padding: 40px;
-    max-width: 800px;
-    max-height: 80vh;
-    overflow-y: auto;
-    border-radius: 8px;
-    position: relative;
-    
-    button {
-        background: #3DCFB6;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: 'Karla', sans-serif;
-        font-weight: 500;
-        margin-top: 20px;
-        
-        &:hover {
-            background: darken(#3DCFB6, 10%);
-        }
-    }
-}
-  
-
-.privacy-policy-content h1 {
-    margin-top: 0;
-    padding-top: 0;
-}
-  
-
-.hidden {
-    display: none !important;
-}
-
-.index-link {
-    color: #3DCFB6;
-}
-
-.E-Mail {
-    color: #3DCFB6;
-}
-
-.Impressum {
-    color: #3DCFB6;
-}
-
-.Website {
-    color: #3DCFB6;
-}
-
-a.Website {
-  word-break: break-all;
-  overflow-wrap: break-word;
-}
-
-.input.invalid-email {
-  color: #EC7B7BCC !important; 
-}
-
-.error-message {
-    color: #EC7B7BCC;
-    font-size: 14px;
-    display: none;
-    margin-top: 5px;
-}
-
-.input.error {
-    color: #EC7B7BCC !important;
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }

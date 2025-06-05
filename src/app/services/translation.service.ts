@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TranslationService {
-  private translations = {
+  public translations = {
     en: {
       about: 'About me',
       skills: 'Skills',
@@ -146,7 +146,7 @@ export class TranslationService {
       dpf: "Data Privacy Framework (DPF)",
       moreInfo: "More information:",
       CreatedPri: "Created with the free privacy policy generator by Dr. Thomas Schwenke",
-      backBu: "Back",
+      backBu: "Back to main",
     },
 
     de: {
@@ -287,7 +287,7 @@ export class TranslationService {
       dpf: "Data Privacy Framework (DPF)",
       moreInfo: "Weitere Informationen:",
       CreatedPri: "Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke",
-      backBu: "Zurück",
+      backBu: "Zurück zum Hauptmenü",
     }
   };  
 

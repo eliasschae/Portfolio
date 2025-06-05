@@ -46,134 +46,17 @@
                 <label class="label-privacyPolicy" for="privacyPolicy">
 
                     {{ text['privacyPolicyAgreement'] }}
-                    <a class="label-a" (click)="openPrivacyPolicy($event)">{{ text['privacyPolicy']
-                        }}</a>
+                    <a class="label-a" [routerLink]="'/privacy-policy'">{{ text['privacyPolicy'] }}</a>
                     {{ text['privacyPolicyConsent'] }}
                 </label>
             </div>
             <span id="privacyPolicyError" class="error-message"
                 [style.display]="!privacyPolicyAccepted && formSubmitted ? 'block' : 'none'">{{
                 text['acceptPrivacyPolicy'] }}</span>
-            <button type="submit" class="submit-button">
+            <button type="submit" class="submit-button" [disabled]="!isFormValid()"
+                [ngClass]="{ 'active-button': isFormValid() }">
                 <span>{{ text['sayHello'] }}</span>
             </button>
         </form>
-    </div>
-</section>
-
-<section id="privacy-policy-overlay" class="privacy-policy-overlay hidden">
-    <div class="privacy-policy-content">
-        <h1>{{ text['privacypolicy'] }}</h1>
-        <p>{{ text['lastupdated'] }}</p>
-        <h2>{{ text['tablecontents'] }}</h2>
-        <ul class="index">
-            <li><a class="index-link">{{ text['controller'] }}</a></li>
-            <li><a class="index-link">{{ text['processingOverview'] }}</a></li>
-            <li><a class="index-link">{{ text['legalBases'] }}</a></li>
-            <li><a class="index-link">{{ text['securityMeasures'] }}</a></li>
-            <li><a class="index-link">{{ text['dataSubjectRights'] }}</a></li>
-            <li><a class="index-link">{{ text['contactManagement'] }}</a></li>
-            <li><a class="index-link">{{ text['pluginsEmbedded'] }}</a></li>
-        </ul>
-        <h2 id="m3">{{ text['Controller'] }}</h2>
-        <p>Elias Schäfer<br>Carlos Reverchon<br>Hohenau 6290</p>
-        <p>Email address: <a class="E-Mail" href="mailto:elias-schaefer1@web.de">elias-schaefer1&#64;web.de</a></p>
-        <p>Phone: +595 994856125</p>
-
-        <h2 id="mOverview">{{ text['processingOverview'] }}</h2>
-        <p>{{ text['overviewText'] }}</p>
-        <h3>{{ text['dataTypes'] }}</h3>
-        <ul>
-            <li>{{ text['inventoryData'] }}.</li>
-            <li>{{ text['contactData'] }}.</li>
-            <li>{{ text['contentData'] }}.</li>
-            <li>{{ text['usageData'] }}.</li>
-            <li>{{ text['metaData'] }}.</li>
-        </ul>
-        <h3>{{ text['affectedCategories'] }}</h3>
-        <ul>
-            <li>{{ text['communicationPartners'] }}.</li>
-            <li>{{ text['users'] }}.</li>
-        </ul>
-
-        <h3>{{ text['processingPurposes'] }}</h3>
-        <ul>
-            <li>{{ text['communication'] }}.</li>
-            <li>{{ text['orgAdminProcesses'] }}.</li>
-            <li>{{ text['feedback'] }}.</li>
-            <li>{{ text['serviceProvision'] }}.</li>
-        </ul>
-
-        <h2 id="m2427">{{ text['legalBases'] }}</h2>
-        <h2 id="m27">{{ text['securityMeasures'] }}</h2>
-        <p>{{ text['securityMeasuresText'] }}</p>
-        <p>{{ text['securityDetailsText'] }}</p>
-        <p>{{ text['tlsSecurityText'] }}</p>
-
-        <h2 id="m10">{{ text['dataSubjectrights'] }}</h2>
-        <p>{{ text['dataSubjectRightsIntro'] }}</p>
-        <ul>
-            <li><strong>{{ text['rightToObject'] }}</strong></li>
-            <li><strong>{{ text['rightToWithdraw'] }}</strong></li>
-            <li><strong>{{ text['rightToAccess'] }}</strong></li>
-            <li><strong>{{ text['rightToRectification'] }}</strong></li>
-            <li><strong>{{ text['rightToErasure'] }}</strong></li>
-            <li><strong>{{ text['rightToDataPortability'] }}</strong></li>
-            <li><strong>{{ text['rightToLodgeComplaint'] }}</strong></li>
-        </ul>
-        <h2 id="m182">{{ text['contactManagement'] }}</h2>
-        <p>{{ text['contactProcessingText'] }}</p>
-        <ul class="m-elements">
-            <li><strong>{{ text['processedDataTypes'] }}</strong>
-                {{ text['inventoryData'] }};
-                {{ text['contactData'] }};
-                {{ text['contentData'] }};
-                {{ text['usageData'] }};
-                {{ text['metaData'] }}.</li>
-            <li><strong>{{ text['affectedPersons'] }}</strong> {{ text['communicationPartners'] }}.</li>
-            <li><strong>{{ text['processingPurposes'] }}</strong> {{ text['purposesList'] }}.</li>
-            <li><strong>{{ text['retentionDeletion'] }}</strong> {{ text['retentionInfo'] }}.</li>
-            <li><strong>{{ text['legalBases'] }}</strong> {{ text['legalBasesList'] }}</li>
-        </ul>
-        <p><strong>{{ text['procedures'] }}</strong></p>
-        <ul class="m-elements">
-            <li><strong>{{ text['contactFormInfo'] }}</strong> <span class=""><strong>{{ text['legalBasesContact']
-                        }}</strong></span></li>
-        </ul>
-        <h2 id="m328">{{ text['pluginsEmbedded'] }}</h2>
-        <p>{{ text['pluginsDescription'] }}</p>
-        <p>{{ text['embeddingRequirement'] }}</p>
-        <p>{{ text['pixelTagsExplanation'] }}</p>
-        <p><strong>{{ text['legalBasisNote'] }}</strong></p>
-        <ul class="m-elements">
-            <li><strong>{{ text['processedDataTypes'] }}</strong> {{ text['usageDataDetails'] }}. {{
-                text['metaDataDetails'] }}.</li>
-            <li><strong>{{ text['affectedPersons'] }}</strong> {{ text['usersDetails'] }}.</li>
-            <li><strong>{{ text['processingPurposes'] }}</strong> {{ text['serviceProvision'] }}.</li>
-            <li><strong>{{ text['retentionDeletion'] }}</strong> {{ text['deletionPolicy'] }} {{ text['cookieStorage']
-                }}</li>
-            <li class=""><strong>{{ text['legalBases'] }}</strong> {{ text['consentBasis'] }}. {{
-                text['legitimateInterestsBasis'] }}.</li>
-        </ul>
-        <p><strong>{{ text['additionalProcessingInfo'] }}</strong></p>
-        <ul class="m-elements">
-            <li><strong>{{ text['googleFontsTitle'] }}</strong> {{ text['googleFontsDescription'] }}
-                {{ text['googleFontsProcess'] }} {{ text['googleFontsLogging'] }} {{ text['googleFontsPrivacy'] }}
-                <strong>{{ text['serviceProvider'] }}</strong> {{ text['googleAddress'] }}
-                <span class=""><strong>{{ text['legalBases'] }}</strong> {{ text['legitimateInterests'] }}</span>
-                <strong>{{ text['website'] }}</strong> <a class="Website" href="https://fonts.google.com/"
-                    target="_blank">https://fonts.google.com/</a>;
-                <strong>{{ text['privacyPolicy'] }}</strong> <br><a class="Website"
-                    href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>;
-                <strong>{{ text['thirdCountryTransfer'] }}</strong> {{ text['dpf'] }}, {{ text['dpf'] }}.
-                <strong>{{ text['moreInfo'] }}</strong> <br><a class="Website"
-                    href="https://developers.google.com/fonts/faq/privacy?hl=de"
-                    target="_blank">https://developers.google.com/fonts/faq/privacy?hl=en</a>.
-            </li>
-        </ul>
-        <p class="seal"><a class="Website" href="https://datenschutz-generator.de/"
-                title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken." target="_blank"
-                rel="noopener noreferrer nofollow">{{ text['CreatedPri'] }}</a></p>
-        <button (click)="closePrivacyPolicy()">{{ text['backBu'] }}</button>
     </div>
 </section>

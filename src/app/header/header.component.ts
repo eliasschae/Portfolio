@@ -1,5 +1,6 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { TranslationService } from '../services/translation.service'; // Import Service
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,7 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  constructor(private translationService: TranslationService, private elRef: ElementRef) {
+  constructor(private translationService: TranslationService, private elRef: ElementRef, private router: Router) {
     this.translationService.text$.subscribe((text) => {
       this.text = text;
     });
@@ -39,11 +40,17 @@ export class HeaderComponent {
   }
 
   scrollTo(section: string) {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const element = document.getElementById(section);
+
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    this.router.navigate(['/'], { queryParams: { scrollTo: section } });
   }
+
+  this.isMenuOpen = false;
+  }
+
 
   @HostListener('document:click', ['$event'])
     clickout(event: Event) {
