@@ -40,17 +40,16 @@ export class HeaderComponent {
   }
 
   scrollTo(section: string) {
-  const element = document.getElementById(section);
+    const element = document.getElementById(section);
+  
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      this.router.navigate(['/'], { queryParams: { scrollTo: section } });
+    }
 
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
-    this.router.navigate(['/'], { queryParams: { scrollTo: section } });
+    this.isMenuOpen = false;
   }
-
-  this.isMenuOpen = false;
-  }
-
 
   @HostListener('document:click', ['$event'])
     clickout(event: Event) {
